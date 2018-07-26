@@ -1,0 +1,18 @@
+
+
+###########################################################
+#测试报告相关参数
+#测试报告标题
+reportTitle: 'owme WebAPI interface automationTest reports'
+#测试报告副标题。在Status : ALL 下面
+reportFitTitle: '测试环境: '
+#测试报告邮件内容
+reportMailContent: 'WebAPI interface AutomationTest finished...'
+reportMailContent2: 'Detail：http://192.168.0.30:9527/webApiTest'
+reportFromAddr: 'dev@followme.com'
+reportToTest: ['1@126.com','2@qq.com']
+reportToAll: []
+reportSubject: '【owme】【http/sockets】WebAPI interface AutomationTest reports-'
+reportSmtpServer: 'smtp.exmail.qq.com'
+reportPasswd: 'wME2017'
+############################################################

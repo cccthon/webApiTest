@@ -1,0 +1,50 @@
+﻿##################################################################################
+##################↓↓↓↓↓↓######### 接口url定义 #########↓↓↓↓↓↓#####################
+##################################################################################
+#######web 接口请求的url除了域名的后半部分。key命名方式：接口名_url###############
+##################################################################################
+
+#收益率图表接口(个人展示页) 
+getAccountRoi_url: "api/v2/trade/"
+getAccountRoi_url2: "/roi"
+
+#净值余额图表接口(个人展示页) 
+getDayAccountBalanceAndEquityList_url: "api/v2/trade/"
+getDayAccountBalanceAndEquityList_url2: "/equity/balance"
+
+#收益图表接口(个人展示页) 
+getDayAccountMoneyAndEquityList_url: "api/v2/trade/"
+getDayAccountMoneyAndEquityList_url2: "/equity/income"
+
+#跟随收益图表接口(个人展示页) 
+getFollowerFollowTraderList_url: "api/v2/trade/"
+getFollowerFollowTraderList_url2: "/follow/income"
+
+#月分析报告图表接口(个人展示页)  
+getMonthAnalysisReport_url: "api/v2/trade/"
+getMonthAnalysisReport_url2: "/month/analysis/report"
+
+#持仓时间图表接口(个人展示页) 
+getPositionDuration_url: "api/v2/trade/"
+getPositionDuration_url2: "/position/duration"
+
+#盈亏分析图表接口(个人展示页) 
+getProfitAndLossAnalysis_url: "api/v2/trade/"
+getProfitAndLossAnalysis_url2: "/profit-loss/analysis"
+
+#品种分析图表接口(个人展示页) 
+getSymbolAnalysis_url: "api/v2/trade/"
+getSymbolAnalysis_url2: "/symbol/analysis"
+
+
+
+
+
+
+
+
+
+
+
+
+

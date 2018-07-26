@@ -1,0 +1,536 @@
+{
+	"items": [{
+		"register": "true",
+		"UserID": "",
+		"Email": "test01@followme.com",
+		"Mobile": "18088888801",
+		"Passwd": "123456",
+		"NickName": "FMTS001",
+		"RealName": "测试交易员",
+		"AccountList": [{
+				"bind": "true",
+				"Mt4Account": "2100000001",
+				"BrokerID": 1,
+				"AccountType": 1,
+				"UserType": 1
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "996397",
+				"BrokerID": 4,
+				"AccountType": 1,
+				"UserType": 1
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "830001",
+				"BrokerID": 5,
+				"AccountType": 1,
+				"UserType": 1
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "79931",
+				"BrokerID": 6,
+				"AccountType": 1,
+				"UserType": 1
+			}
+		]
+	},
+	{
+		"register": "true",
+		"UserID": "",   
+		"Email": "test02@followme.com",
+		"Mobile": "18088888802",
+		"Passwd": "123456",
+		"NickName": "FMTS002",
+		"RealName": "测试交易员",
+		"AccountList": [{
+				"bind": "true",
+				"Mt4Account": "2100000002",
+				"BrokerID": 1,
+				"AccountType": 1,
+				"UserType": 1
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "996396",
+				"BrokerID": 4,
+				"AccountType": 1,
+				"UserType": 1
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "830002",
+				"BrokerID": 5,
+				"AccountType": 1,
+				"UserType": 1
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "79932",
+				"BrokerID": 6,
+				"AccountType": 1,
+				"UserType": 1
+			}
+		]
+	},
+	{
+		"register": "true",
+		"UserID": "",   
+		"Email": "test03@followme.com",
+		"Mobile": "18088888803",
+		"Passwd": "123456",
+		"NickName": "FMTS003",
+		"RealName": "测试交易员",
+		"AccountList": [{
+				"bind": "true",
+				"Mt4Account": "2100000003",
+				"BrokerID": 1,
+				"AccountType": 1,
+				"UserType": 1
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "996395",
+				"BrokerID": 4,
+				"AccountType": 1,
+				"UserType": 1
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "830003",
+				"BrokerID": 5,
+				"AccountType": 1,
+				"UserType": 1
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "79933",
+				"BrokerID": 6,
+				"AccountType": 1,
+				"UserType": 1
+			}
+		]
+	},
+	{
+		"register": "true",
+		"UserID": "",   
+		"Email": "test04@followme.com",
+		"Mobile": "18088888804",
+		"Passwd": "123456",
+		"NickName": "FMTS004",
+		"RealName": "测试交易员",
+		"AccountList": [{
+				"bind": "true",
+				"Mt4Account": "2100000004",
+				"BrokerID": 1,
+				"AccountType": 1,
+				"UserType": 1
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "996394",
+				"BrokerID": 4,
+				"AccountType": 1,
+				"UserType": 1
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "830004",
+				"BrokerID": 5,
+				"AccountType": 1,
+				"UserType": 1
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "79934",
+				"BrokerID": 6,
+				"AccountType": 1,
+				"UserType": 1
+			}
+		]
+	},
+	{
+		"register": "true",
+		"UserID": "",   
+		"Email": "test05@followme.com",
+		"Mobile": "18088888805",
+		"Passwd": "123456",
+		"NickName": "FMTS005",
+		"RealName": "测试交易员",
+		"AccountList": [{
+				"bind": "true",
+				"Mt4Account": "2100000005",
+				"BrokerID": 1,
+				"AccountType": 1,
+				"UserType": 1
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "996393",
+				"BrokerID": 4,
+				"AccountType": 1,
+				"UserType": 1
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "830005",
+				"BrokerID": 5,
+				"AccountType": 1,
+				"UserType": 1
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "79935",
+				"BrokerID": 6,
+				"AccountType": 1,
+				"UserType": 1
+			}
+		]
+	},
+	{
+		"register": "true",
+		"UserID": "",   
+		"Email": "test06@followme.com",
+		"Mobile": "18088888806",
+		"Passwd": "123456",
+		"NickName": "FMTS006",
+		"RealName": "测试交易员",
+		"AccountList": [{
+				"bind": "true",
+				"Mt4Account": "2100000006",
+				"BrokerID": 1,
+				"AccountType": 1,
+				"UserType": 1
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "996392",
+				"BrokerID": 4,
+				"AccountType": 1,
+				"UserType": 1
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "830006",
+				"BrokerID": 5,
+				"AccountType": 1,
+				"UserType": 1
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "79936",
+				"BrokerID": 6,
+				"AccountType": 1,
+				"UserType": 1
+			}
+		]
+	},
+	{
+		"register": "true",
+		"UserID": "",   
+		"Email": "test07@followme.com",
+		"Mobile": "18088888807",
+		"Passwd": "123456",
+		"NickName": "FMTS007",
+		"RealName": "测试交易员",
+		"AccountList": [{
+				"bind": "true",
+				"Mt4Account": "2100000007",
+				"BrokerID": 1,
+				"AccountType": 1,
+				"UserType": 1
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "996391",
+				"BrokerID": 4,
+				"AccountType": 1,
+				"UserType": 1
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "830007",
+				"BrokerID": 5,
+				"AccountType": 1,
+				"UserType": 1
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "79937",
+				"BrokerID": 6,
+				"AccountType": 1,
+				"UserType": 1
+			}
+		]
+	},
+	{
+		"register": "true",
+		"UserID": "",   
+		"Email": "test08@followme.com",
+		"Mobile": "18088888808",
+		"Passwd": "123456",
+		"NickName": "FMTS008",
+		"RealName": "测试跟随者",
+		"AccountList": [{
+				"bind": "true",
+				"Mt4Account": "2100000008",
+				"BrokerID": 1,
+				"AccountType": 1,
+				"UserType": 2
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "996390",
+				"BrokerID": 4,
+				"AccountType": 1,
+				"UserType": 2
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "830008",
+				"BrokerID": 5,
+				"AccountType": 1,
+				"UserType": 2
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "79938",
+				"BrokerID": 6,
+				"AccountType": 1,
+				"UserType": 2
+			}
+		]
+	},
+	{
+		"register": "true",
+		"UserID": "",   
+		"Email": "test09@followme.com",
+		"Mobile": "18088888809",
+		"Passwd": "123456",
+		"NickName": "FMTS009",
+		"RealName": "测试跟随者",
+		"AccountList": [{
+				"bind": "true",
+				"Mt4Account": "2100000009",
+				"BrokerID": 1,
+				"AccountType": 1,
+				"UserType": 2
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "996389",
+				"BrokerID": 4,
+				"AccountType": 1,
+				"UserType": 2
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "830009",
+				"BrokerID": 5,
+				"AccountType": 1,
+				"UserType": 2
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "79939",
+				"BrokerID": 6,
+				"AccountType": 1,
+				"UserType": 2
+			}
+		]
+	},
+	{
+		"register": "true",
+		"UserID": "",   
+		"Email": "test10@followme.com",
+		"Mobile": "18088888810",
+		"Passwd": "123456",
+		"NickName": "FMTS010",
+		"RealName": "测试跟随者",
+		"AccountList": [{
+				"bind": "true",
+				"Mt4Account": "2100000010",
+				"BrokerID": 1,
+				"AccountType": 1,
+				"UserType": 2
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "996374",
+				"BrokerID": 4,
+				"AccountType": 1,
+				"UserType": 2
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "830010",
+				"BrokerID": 5,
+				"AccountType": 1,
+				"UserType": 2
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "79940",
+				"BrokerID": 6,
+				"AccountType": 1,
+				"UserType": 2
+			}
+		]
+	},
+	{
+		"register": "true",
+		"UserID": "",   
+		"Email": "test11@followme.com",
+		"Mobile": "18088888811",
+		"Passwd": "123456",
+		"NickName": "FMTS011",
+		"RealName": "测试跟随者",
+		"AccountList": [{
+				"bind": "true",
+				"Mt4Account": "2100000011",
+				"BrokerID": 1,
+				"AccountType": 1,
+				"UserType": 2
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "996018",
+				"BrokerID": 4,
+				"AccountType": 1,
+				"UserType": 2
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "830011",
+				"BrokerID": 5,
+				"AccountType": 1,
+				"UserType": 2
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "79941",
+				"BrokerID": 6,
+				"AccountType": 1,
+				"UserType": 2
+			}
+		]
+	},
+	{
+		"register": "true",
+		"UserID": "",   
+		"Email": "test12@followme.com",
+		"Mobile": "18088888812",
+		"Passwd": "123456",
+		"NickName": "FMTS012",
+		"RealName": "测试跟随者",
+		"AccountList": [{
+				"bind": "true",
+				"Mt4Account": "2100000012",
+				"BrokerID": 1,
+				"AccountType": 1,
+				"UserType": 2
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "996017",
+				"BrokerID": 4,
+				"AccountType": 1,
+				"UserType": 2
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "830012",
+				"BrokerID": 5,
+				"AccountType": 1,
+				"UserType": 2
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "79942",
+				"BrokerID": 6,
+				"AccountType": 1,
+				"UserType": 2
+			}
+		]
+	},
+	{
+		"register": "true",
+		"UserID": "",   
+		"Email": "test13@followme.com",
+		"Mobile": "18088888813",
+		"Passwd": "123456",
+		"NickName": "FMTS013",
+		"RealName": "测试跟随者",
+		"AccountList": [{
+				"bind": "true",
+				"Mt4Account": "2100000013",
+				"BrokerID": 1,
+				"AccountType": 1,
+				"UserType": 2
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "996015",
+				"BrokerID": 4,
+				"AccountType": 1,
+				"UserType": 2
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "830013",
+				"BrokerID": 5,
+				"AccountType": 1,
+				"UserType": 2
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "79943",
+				"BrokerID": 6,
+				"AccountType": 1,
+				"UserType": 2
+			}
+		]
+	},
+	{
+		"register": "true",
+		"UserID": "",   
+		"Email": "test14@followme.com",
+		"Mobile": "18088888814",
+		"Passwd": "123456",
+		"NickName": "FMTS014",
+		"RealName": "测试跟随者",
+		"AccountList": [{
+				"bind": "true",
+				"Mt4Account": "2100000014",
+				"BrokerID": 1,
+				"AccountType": 1,
+				"UserType": 2
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "996013",
+				"BrokerID": 4,
+				"AccountType": 1,
+				"UserType": 2
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "830014",
+				"BrokerID": 5,
+				"AccountType": 1,
+				"UserType": 2
+			},
+			{
+				"bind": "true",
+				"Mt4Account": "79944",
+				"BrokerID": 6,
+				"AccountType": 1,
+				"UserType": 2
+			}
+		]
+	}
+	]
+
+}

@@ -1,0 +1,52 @@
+﻿##################################################################################
+##################↓↓↓↓↓↓######### 接口url定义 #########↓↓↓↓↓↓#####################
+##################################################################################
+#######web 接口请求的url除了域名的后半部分。key命名方式：接口名_url###############
+##################################################################################
+
+getTraders_url: "api/v1/trade/traders?"
+createFollow_url: "api/v1/trade/follows/"
+deleteFollow_url: "api/v1/trade/follows/"
+
+Follow_Url: "api/v1/trade/follows/"
+
+#Follows
+getHistoryFollowers: "api/v2/trade/followers?pageSize=200&pageIndex=1&flag=1&pageField=TOTALDAYS&pageSort=DESC&isFollowing=false"
+getFollowingFollowers: "api/v2/trade/followers?pageSize=200&pageIndex=1&flag=1&pageField=TOTALDAYS&pageSort=DESC&isFollowing=true"
+#getFollows
+getFollows: "api/v2/trade/follows"
+#getFollowSummary
+getFollowSummary: "api/v2/trade/follow-summary?flag=1"
+#getFollowerSummary
+getFollowerSummary: "api/v2/trade/follower-summary"
+
+#跟随多个交易员，组合跟随（需要登录） 
+followMulti_url: "api/v2/trade/follows"
+
+#排行榜-跟随大师 
+getRankFollowers_url: "api/v2/trade/rank/followers"
+
+#排行榜-交易员 
+getRankTraders_url: "api/v2/trade/rank/traders"
+
+#解除跟随订单
+unfollowOrder_url: "api/v2/trade/orders/"
+
+#个人展示页-交易概览 
+getStatisticsOfAccount_url: "api/v2/trade/accounts/"
+getStatisticsOfAccount_url1: "/statistics"
+
+#排行榜-跟随者跟随组合交易员
+follows_url: "api/v2/trade/follows"
+
+
+
+
+
+
+
+
+
+
+
+

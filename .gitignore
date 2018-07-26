@@ -1,0 +1,9 @@
+src/*
+report/*.html
+__pycache__/
+*.pyc
+.idea
+*.html
+.tags
+.tags_sorted_by_file
+/proto

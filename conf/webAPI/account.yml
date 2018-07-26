@@ -1,0 +1,43 @@
+﻿##################################################################################
+##################↓↓↓↓↓↓######### 接口url定义 #########↓↓↓↓↓↓#####################
+##################################################################################
+#######web 接口请求的url除了域名的后半部分。key命名方式：接口名_url###############
+##################################################################################
+
+#account
+getToken_url: "api/v2/trade/token"
+getBrokerInfo_url: "api/v1/account/broker/information"
+
+#getAccounts
+getAccounts_url: "api/v2/trade/accounts/"
+getAccounts_url2: "?all=true"
+
+#获取当前用户的当前切换的交易账户（需登录）
+getAccount_url: "api/v2/trade/account"
+
+#switchAccount
+switchAccount: "api/v2/trade/accounts/"
+switch: "/switch"
+
+#获取accountIndex
+getAccountIndex_url: "api/v1/account/index"
+
+getUserInfo_url: "api/v1/account/users/"
+#设置昵称
+setUserNickname_url: "api/v1/account/users/"
+
+#获取经纪商列表
+getBrokers_url: "api/v2/trade/brokers"
+
+#用户开户时更新用户信息
+updateUserInfo_url: "api/v1/account/update/user"
+
+
+######################## OA ########################
+
+#获取账户总览列表
+getUserAccountSummaryReport_url: "Account/GetUserAccountSummaryReport"
+
+
+
+

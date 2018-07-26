@@ -1,0 +1,45 @@
+##################################################################################
+##################↓↓↓↓↓↓######### 接口url定义 #########↓↓↓↓↓↓#####################
+##################################################################################
+#######web 接口请求的url除了域名的后半部分。key命名方式：接口名_url###############
+##################################################################################
+
+
+
+
+#getCommissions  获取交易员的跟随服务费核算列表（需要登录） 
+getCommissions_url: "api/v2/trade/commissions"
+
+#applyCommission   服务费申请（需要登录） 
+applyCommission_url: "api/v2/trade/commission-apply"
+
+#getCommissionApplyHistories   获取服务费申请记录（需要登录） 
+getCommissionApplyHistories_url: "api/v2/trade/commission-apply-histories"
+
+#getTraderCommissionApplyList   获取OA跟随服务费列表明细（需要登录） 
+getTraderCommissionApplyList_url: "Trader/GetTraderCommissionApplyList"
+
+#getTraderCommissionApplyList   OA审核跟随服务费审核（需要登录） 
+getCalcFee_url: "Trader/CalcFee"
+
+#Trader/CommApplySubmit  OA审核跟随服务费审核（需要登录） 
+commApplySubmit_url: "Trader/CommApplySubmit"
+
+#Trader/AddExchangeRate  OA设置汇率（需要登录） 
+addExchangeRate_url: "Trader/AddExchangeRate"
+
+#Trader/GetTodayExchangeRate  OA获得汇率（需要登录） 
+getTodayExchangeRate_url: "Trader/GetTodayExchangeRate"
+
+#Trader/CommPlaymoneyApplySubmit  OA获得汇率（需要登录） 
+commPlaymoneyApplySubmit_url: "Trader/CommPlaymoneyApplySubmit"
+
+#getCommissionSummary 获取交易员的跟随服务费概览（需要登录）  
+getCommissionSummary_url: "api/v2/trade/commission-summary"
+
+
+
+
+
+
+

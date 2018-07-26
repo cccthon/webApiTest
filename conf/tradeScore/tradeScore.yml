@@ -1,0 +1,190 @@
+﻿#每个参数冒号后面必须留一个空格
+#########净值利润因子#############
+actualFactorProfitEquity: "SELECT [FactorProfitEquity] FROM [FM_OS_V3].[dbo].[T_TraderScore] where account ="
+expectFactorProfitEquity: "
+DECLARE @money_profit_sum float \n
+DECLARE @money_loss_sum float \n
+SELECT @money_profit_sum=SUM(a.profit_sum) FROM ( \n
+SELECT ISNULL(PROFIT,0)+ISNULL(SWAPS,0)+ISNULL(COMMISSION,0) AS profit_sum FROM T_MT4Trades WHERE LOGIN=@account AND BrokerID=@brokerid and cmd IN (0,1) ) a WHERE a.profit_sum>=0 \n
+SELECT @money_loss_sum=SUM(a.profit_sum) FROM ( \n
+SELECT ISNULL(PROFIT,0)+ISNULL(SWAPS,0)+ISNULL(COMMISSION,0) AS profit_sum FROM T_MT4Trades WHERE LOGIN=@account AND BrokerID=@brokerid and cmd IN (0,1)) a WHERE a.profit_sum<0 \n
+SELECT (case when ISNULL(@money_loss_sum,0)=0 then 0 else ISNULL(@money_profit_sum,0)/ISNULL(@money_loss_sum,0) end) AS FactorProfitEquity"
+
+######################历史余额收益率######################
+actualRateProfitBalance: "SELECT [RateProfitBalance] FROM [FM_OS_V3].[dbo].[T_TraderScore] where account ="
+expectRateProfitBalance: "
+DECLARE @deposit_sum float = 0.0 \n
+DECLARE @money_close float = 0.0 \n
+SELECT @deposit_sum=SUM(ISNULL(PROFIT,0)) FROM T_MT4Trades WHERE LOGIN=@account AND BrokerID=@brokerid AND PROFIT>0 AND CMD IN (6,7) \n
+SELECT @money_close=SUM(ISNULL(PROFIT,0)+ISNULL(SWAPS,0)+ISNULL(COMMISSION,0)) FROM T_MT4Trades WHERE LOGIN=@account AND BrokerID=@brokerid AND CMD IN (0,1) AND CLOSE_TIME>'1970-01-01' \n
+SELECT (case when ISNULL(@deposit_sum,0)=0 then 0 else ISNULL(@money_close,0)/ISNULL(@deposit_sum,0) end) AS RateProfitBalance" 
+
+########################近7天收益率############
+actualRateProfitWeek: "SELECT [RateProfitWeek] FROM [FM_OS_V3].[dbo].[T_TraderScore] where account ="
+expectRateProfitWeek: "
+DECLARE @deposit_week float = 0.0 \n
+DECLARE @money_close_week float = 0.0 \n
+SELECT @deposit_week=Sum(Profit+COMMISSION+SWAPS) FROM T_MT4Trades WHERE Login=@account AND BrokerId=@brokerid and close_time<=CONVERT(VARCHAR(100),DATEADD(day, -7, GETDATE()),120) \n
+SELECT @money_close_week=SUM(ISNULL(PROFIT,0)+ISNULL(SWAPS,0)+ISNULL(COMMISSION,0)) FROM T_MT4Trades WHERE LOGIN=@account AND BrokerID=@brokerid AND CMD IN (0,1) AND CLOSE_TIME>=CONVERT(VARCHAR(100),DATEADD(day, -7, GETDATE()),120) AND CLOSE_TIME<CONVERT(VARCHAR(100),GETDATE(),120) \n
+SELECT (case when ISNULL(@deposit_week,0)=0 then 0 else ISNULL(@money_close_week,0)/ISNULL(@deposit_week,0) end)"
+
+#######################近30天收益率#############
+actualRateProfitMonth: "SELECT [RateProfitMonth] FROM [FM_OS_V3].[dbo].[T_TraderScore] where account ="
+expectRateProfitMonth: "
+DECLARE @deposit_month float = 0.0 \n
+DECLARE @money_close_month float = 0.0 \n
+SELECT @deposit_month=Sum(Profit+COMMISSION+SWAPS) FROM T_MT4Trades WHERE Login=@account AND BrokerId=@brokerid and close_time<=CONVERT(VARCHAR(100),DATEADD(day, -30, GETDATE()),120) \n
+SELECT @money_close_month=SUM(ISNULL(PROFIT,0)+ISNULL(SWAPS,0)+ISNULL(COMMISSION,0)) FROM T_MT4Trades WHERE LOGIN=@account AND BrokerID=@brokerid AND CMD IN (0,1) AND CLOSE_TIME>=CONVERT(VARCHAR(100),DATEADD(day, -30, GETDATE()),120) AND CLOSE_TIME<CONVERT(VARCHAR(100),GETDATE(),120) \n
+SELECT (case when ISNULL(@deposit_month,0)=0 then 0 else ISNULL(@money_close_month,0)/ISNULL(@deposit_month,0) end)"
+
+#######################收益对比###############
+actualRatioProfit: "SELECT [RatioProfit] FROM [FM_OS_V3].[dbo].[T_TraderScore] where account ="
+expectRatioProfit: "
+DECLARE @money_close float = 0.0 \n
+DECLARE @money_position float = 0.0 \n
+SELECT @money_close=SUM(ISNULL(PROFIT,0)+ISNULL(SWAPS,0)+ISNULL(COMMISSION,0)) FROM T_MT4Trades WHERE LOGIN=@account AND BrokerID=@brokerid AND CMD IN (0,1) AND CLOSE_TIME>'1970-01-01' \n
+SELECT @money_position=SUM(ISNULL(PROFIT,0)+ISNULL(SWAPS,0)+ISNULL(COMMISSION,0)) FROM T_MT4Trades WHERE  LOGIN=@account AND BrokerID=@brokerid AND CMD IN (0,1) AND CLOSE_TIME='1970-01-01' \n
+SELECT (case when ISNULL(@money_close,0)=0 then 0 else (ISNULL(@money_position,0)+ISNULL(@money_close,0))/ISNULL(@money_close,0) end) AS RatioProfit"
+
+###################净值######################
+actualEquity: "SELECT [Equity] FROM [FM_OS_V3].[dbo].[T_TraderScore] where account ="
+expectEquity: "
+DECLARE @balance float = 0.0 \n
+DECLARE @equity float = 0.0 \n
+DECLARE @margin float = 0.0 \n
+SELECT @equity=Equity,@balance=Balance,@margin=Margin FROM T_MT4Users WHERE Login=@account AND BrokerId=@brokerid \n
+SELECT ISNULL(@equity,0)"
+
+###############最大资金持仓占比##############
+actualRatePositionMaxHistory: "SELECT [RatePositionMaxHistory] FROM [FM_OS_V3].[dbo].[T_TraderScore] where account ="
+expectRatePositionMaxHistory: "
+DECLARE @balance float = 0.0 \n
+DECLARE @equity float = 0.0 \n
+DECLARE @margin float = 0.0 \n
+SELECT @equity=Equity,@balance=Balance,@margin=Margin FROM T_MT4Users WHERE Login=@account AND BrokerId=@brokerid \n
+SELECT (case when ISNULL(@balance,0)=0 then 0 else ISNULL(@margin,0)/ISNULL(@balance,0) end)"
+
+#################极限点数对比##############
+actualRatioEdgePoints: "SELECT [RatioEdgePoints] FROM [FM_OS_V3].[dbo].[T_TraderScore] where account ="
+expectRatioEdgePoints: "
+DECLARE @points_profit_max_sum float = 0.0 \n
+DECLARE @points_loss_max_sum float = 0.0 \n
+SELECT @points_profit_max_sum=MAX(b.Point) FROM T_MT4Trades AS a \n
+INNER JOIN T_MT4TradesInfo AS b ON a.LOGIN=b.Login AND a.BrokerID=b.BrokerId AND a.TICKET=b.ticket \n
+WHERE a.LOGIN=@account AND a.BrokerID=@brokerid AND a.CMD IN (0,1) AND b.Point>=0 \n
+SELECT @points_loss_max_sum=MIN(b.Point) FROM T_MT4Trades AS a \n
+INNER JOIN T_MT4TradesInfo AS b ON a.LOGIN=b.Login AND a.BrokerID=b.BrokerId AND a.TICKET=b.ticket \n
+WHERE a.LOGIN=@account AND a.BrokerID=@brokerid AND a.CMD IN (0,1) AND b.Point<0 \n
+SELECT (case when ISNULL(@points_loss_max_sum,0)=0 then 0 else ISNULL(@points_profit_max_sum,0)/ISNULL(@points_loss_max_sum,0) end) AS RatioEdgePoints"
+
+#################交易周数##############
+actualPeriodTrade: "SELECT [PeriodTrade] FROM [FM_OS_V3].[dbo].[T_TraderScore] where account ="
+expectPeriodTrade: "SELECT ISNULL(DATEDIFF(hh,MIN(OPEN_TIME),GETDATE()),0)/24/7.0 AS PeriodTrade FROM T_MT4Trades WHERE LOGIN=@account AND BrokerID=@brokerid AND CMD IN (0,1)"
+
+#################活跃度##############
+actualActivity: "SELECT [Activity] FROM [FM_OS_V3].[dbo].[T_TraderScore] where account ="
+expectActivity: "SELECT ISNULL(DATEDIFF(hh,MAX(OPEN_TIME),GETDATE())/24.0,0) AS Activity FROM T_MT4Trades WHERE LOGIN=@account AND BrokerID=@brokerid AND CMD IN (0,1)"
+
+#################实盘跟随人数##############
+actualNumberOfFollow: "SELECT [NumberOfFollow] FROM [FM_OS_V3].[dbo].[T_TraderScore] where account ="
+expectNumberOfFollow: "SELECT COUNT(1) AS NumberOfFollow FROM T_FollowReport WHERE MasterAccount = @account AND MasterBrokerId = @brokerid AND FollowBrokerId != 3 and enddate = '1970-01-01'"
+
+#################平仓最大亏损点数##############
+actualPointsLossMaxClose: "SELECT [PointsLossMaxClose] FROM [FM_OS_V3].[dbo].[T_TraderScore] where account ="
+expectPointsLossMaxClose: "SELECT ISNULL(min(pips),0) FROM [FM_OS_V3].[dbo].T_MT4Trades where login =@account and brokerid=@brokerid and close_time>'1970-01-01' and cmd in (0,1)"
+
+#################平均点数对比##################
+actualRatioAveragePoints: "SELECT [RatioAveragePoints] FROM [FM_OS_V3].[dbo].[T_TraderScore] where account ="
+expectRatioAveragePoints: "
+DECLARE @points_profit_sum float = 0.0 \n
+DECLARE @points_loss_sum float = 0.0 \n
+DECLARE @count_profit_sum float = 0 \n
+DECLARE @count_loss_sum float = 0 \n
+SELECT @points_profit_sum=SUM(pips) FROM T_MT4Trades WHERE LOGIN=@account AND BrokerID=@brokerid and pips >=0 \n
+SELECT @points_loss_sum=SUM(pips) FROM T_MT4Trades WHERE LOGIN=@account AND BrokerID=@brokerid and pips <0 \n
+SELECT @count_profit_sum=COUNT(1) FROM T_MT4Trades WHERE LOGIN=@account AND BrokerID=@brokerid and pips >=0 \n
+SELECT @count_loss_sum=COUNT(1) FROM T_MT4Trades WHERE LOGIN=@account AND BrokerID=@brokerid and pips <0 \n
+SELECT (case when ISNULL((case when ISNULL(@count_loss_sum,0)=0 then 0 else ISNULL((case when ISNULL(@count_profit_sum,0)=0 then 0 else \n
+ISNULL(@points_profit_sum,0)/ISNULL(@count_profit_sum,0) end),0)/ISNULL(@count_loss_sum,0) end),0)=0 then 0 else ISNULL(@points_profit_sum,0)/ \n
+ISNULL((case when ISNULL(@count_loss_sum,0)=0 then 0 else ISNULL(@points_loss_sum,0)/ISNULL(@count_loss_sum,0) end),0) end) AS RatioAveragePoints"
+
+
+#################再途回撤率###########
+actualReTraceMent: "SELECT [RateRetracementMax] FROM [FM_OS_V3].[dbo].[T_TraderScore] where account ="
+expectReTraceMent: "
+--DECLARE @account VARCHAR(64)=2100000007 \n
+--SELECT [RateRetracementMax],[profitSumMaxClose] FROM [FM_OS_V3].[dbo].[T_TraderScore] where account =@account \n
+--历史已平仓订单最大收益 \n
+DECLARE @maxProfit decimal(20,8) set @maxProfit=0 \n
+DECLARE @count int  \n
+DECLARE @i int set @i=1 \n
+DECLARE @profit decimal(20,8) \n
+DECLARE @sum float set @sum=0 \n
+Select ISNULL(Profit,0)+ISNULL(SWAPS,0)+ISNULL(COMMISSION,0) AS Profit,row_number() over (order by close_time asc) num into ##Temp from [dbo].[T_MT4Trades] where login=@account and cmd in(0,1) and CLOSE_TIME>'1970-01-01' \n
+Select @count=max(num) from ##Temp  \n
+While @i<=@count \n
+Begin \n
+  select @profit=Profit from ##Temp where num=@i \n
+  set @sum=@sum+@profit \n
+  if @maxProfit<@sum \n
+      begin  \n
+        set @maxProfit=@sum \n
+      end \n
+  set @i=@i+1 \n
+End \n
+--select @sum \n
+--select @maxProfit as 历史已平仓订单最大收益 \n
+Drop table ##Temp \n
+--已平仓订单总收益 \n
+DECLARE @historyProfit float = 0.0 \n
+DECLARE @currProfit float = 0.0 \n
+DECLARE @funds float = 0 \n
+SELECT @historyProfit=Sum(Profit+COMMISSION+SWAPS) FROM [FM_OS_V3].[dbo].[T_MT4Trades]  where login=@account and close_time <> '1970-01-01 00:00:00.000' and CMD in (0,1) \n
+--未平仓订单收益 \n
+SELECT @currProfit=Sum(Profit+COMMISSION+SWAPS) FROM [FM_OS_V3].[dbo].[T_MT4Trades]  where login=@account and close_time = '1970-01-01 00:00:00.000' and CMD in (0,1) \n
+--总入金 \n
+SELECT @funds=Sum(Profit+COMMISSION+SWAPS) FROM [FM_OS_V3].[dbo].[T_MT4Trades]  where login=@account and cmd in (6,7) and profit > 0 \n
+-- 在途最大回撤率 = ( 已平仓订单总收益+未平仓订单收益-历史已平仓订单最大收益 ) ／ ( 历史已平仓订单最大收益 + 总入金 ) \n
+SELECT (ISNULL(@historyProfit,0) + ISNULL(@currProfit,0) - ISNULL(@maxProfit,0)) / (ISNULL(@maxProfit,0) + ISNULL(@funds,0)) AS 在途最大回撤率"
+
+
+#################连续收益周###########
+actualCountWeekProfit: "SELECT [CountWeekProfit] FROM [FM_OS_V3].[dbo].[T_TraderScore] where account ="
+expectCountWeekProfit: "
+DECLARE @N INT \n
+DECLARE @PROFIT_1 decimal(20,8) \n
+DECLARE @WEEK INT \n
+DECLARE @HisWeek INT \n
+DECLARE @SumWEEK INT \n
+DECLARE @j INT \n
+SET @N=0 \n
+SET @j=1 \n
+SET @HisWeek=0 \n
+set @SumWEEK=0 \n
+--收益周数 \n
+Select Profit,week,row_number() over (order by week asc) num into ##Temp_WeekTbl from( \n
+Select Sum(Profit+COMMISSION+SWAPS) as Profit,datename(week,close_time) AS week from [dbo].[T_MT4Trades] \n
+Where  login=@account and cmd in(0,1) and close_time <> '1970-01-01 00:00:00.000' and datediff(week,close_time,getdate())!=0  \n
+group by  datename(week,close_time)) as TEMP \n
+SELECT  @N=COUNT(*) FROM ##Temp_WeekTbl \n
+WHILE @j<=@N \n
+  Begin \n
+    select @PROFIT_1=Profit,@WEEK=week from ##Temp_WeekTbl where num=@j \n
+    if @PROFIT_1 > 0 \n
+      if @HisWeek = @WEEK - 1 \n
+        begin \n
+        set @SumWEEK = @SumWEEK+1 \n
+        end \n
+      else \n
+        begin \n
+        set @SumWEEK = 0 \n
+        end \n
+    else \n
+      begin \n
+      set @HisWeek = @WEEK \n
+      set @SumWEEK = 0 \n
+      end \n
+    set @j=@j+1 \n
+  End \n
+Select @SumWEEK \n
+DROP TABLE ##Temp_WeekTbl"

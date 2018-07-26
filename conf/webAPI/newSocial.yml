@@ -1,0 +1,125 @@
+##################################################################################
+##################↓↓↓↓↓↓######### Social模块URl #########↓↓↓↓↓↓################
+##################################################################################
+
+#发布微博
+addBlog_url: "api/v2/social/blog/add"
+
+#删除微博
+delBlogById_url: "api/v2/social/blog/del/"
+
+#我的微博列表
+getMyBlogs_url: "api/v2/social/user/me/blogs"
+
+#上传图片
+singleFileUpload_url: "api/v2/social/file/upload"
+
+#品种资讯
+getBlogByType_url: "api/v2/social/blog/lists/"
+
+#获取品种资讯或交易动态
+#getBlogByType_url: "api/v2/social/blog/lists/:type"
+
+#发表评论
+addComment_url: "api/v2/social/comment/add"
+
+#我评论的列表
+getCommentFromMe_url: "api/v2/social/comment/fromme"
+
+#获取评论我的列表
+getCommentToMe_url: "api/v2/social/comment/tome"
+
+#获取某微博的评论列表
+getCommentList_url: "api/v2/social/comment/list?objId="
+
+#删除评论
+delComment_url: "api/v2/social/comment/del/"
+
+#获取@我的微博或者@我的评论
+getAtMeBlogAndComment_url: "api/v2/social/remind/atme?type="
+
+#关注用户
+addOrCancelAttention_url: "api/v2/social/user/deal/attention"
+
+#获取我的关注列表
+getMyAttentions_url: "api/v2/social/user/me/attentions"
+
+#获取粉丝列表
+getMyFans_url: "api/v2/social/user/me/fans"
+
+#收藏或取消微博
+addOrCancelCollect_url: "api/v2/social/user/deal/collect"
+
+#我的收藏列表
+getMyCollect_url: "api/v2/social/user/me/collect"
+
+#点赞微博
+addOrCancelPraise_url: "api/v2/social/praise/deal"
+
+#获取该微博对应的赞
+getPraiseList_url: "api/v2/social/praise/list?objId="
+
+#收到的赞列表
+getMyReceive_url: "api/v2/social/praise/receive"
+
+#根据关键字搜索微博
+searchBlogByKeyWord_url: "api/v2/social/blog/search?key="
+
+#根据关键字搜索用户
+searchUserByKeyWord_url: "api/v2/social/blog/user/search?key="
+
+#分享微博
+blogShare_url: "api/v2/social/blog/share?blogId="
+
+#获取热门微博
+getHotBlog_url: "api/v2/social/blog/hot/list"
+
+#按推荐位获取热门推荐
+getBlogByLocation_url: "api/v2/social/blog/location/list"
+
+#获取品种资讯或交易动态 
+getBlogByType_url: "api/v2/social/blog/lists/"
+
+#根据PostType类型获取相应的微博 
+getBlogByPostType_url: "api/v2/social/blog/type/list"
+
+
+#获取所有微博动态
+getAllBlog_url: "api/v2/social/blog/list"
+
+#获取热门微博 
+getHotBlog_url: "api/v2/social/blog/hot/list?pageIndex=1&pageSize=10"
+
+#分享微博
+blogShare_url: "api/v2/social/blog/share?blogId="
+
+
+#按推荐位获取热门推荐推荐位
+getBlogByLocation_url: "api/v2/social/blog/location/list?pageIndex=1&pageSize=5&location="
+
+#根据PostType类型获取相应的微博
+getBlogByPostType_url: "api/v2/social/blog/type/list?pageIndex=1&pageSize=10&type="
+
+#获取微博详情
+getBlogDetail_url: "api/v2/social/blog/"
+
+#获取公告banner列表
+getNoticeList_url: "api/v2/social/blog/notice/list?pageIndex=1&pageSize=6"
+
+#获取微博最后id
+getLastId_url: "api/v2/social/blog/lastid"
+
+#获取全局提醒列表[需要登录]
+getGlobalRemind_url: "api/v2/social/remind/global"
+
+#获取财经要闻
+getFinanceList_url: "api/v2/social/blog/finance/list?pageIndex=1&pageSize=10"
+
+#获取财经要闻页的热门推荐
+getHotRecommendList_url: "api/v2/social/blog/hot-recommend/list?pageIndex=1&pageSize=6"
+
+
+
+
+
+

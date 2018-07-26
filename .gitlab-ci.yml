@@ -1,0 +1,44 @@
+image: webtest-python
+interfaceTest:
+  stage: test
+  script:
+    - echo "test"
+    - pwd
+    - ls -al
+    - pip3 list
+    - cat requirements.txt
+    - pip3 install -r requirements.txt
+    - cd rake/task
+    - python start_autoTest.py
+    # - cd test/trade
+    # - python FM_BatchCloseByFxcm.py
+    - ls -al ../../report/
+    - ls -al /opt/gitlab-runner/testReport/report/
+    - grep "Start Time" ../../report/webApiTest/$(date +%Y%m)/$(date +%d)/new/index.html
+    - cp -rf ../../report/* /opt/gitlab-runner/testReport/report/
+    #- cp -rf ../../report/$(date +%Y%m)/$(date +%d) /opt/testReport/report/
+  only:
+    - master
+  tags:
+    - master
+    
+# job_test:
+  # stage: test
+  # script:
+    # - chcp 850
+    # - dir
+    # - ipconfig |findstr 192.168
+    # - echo "Regular daily test..."
+    # - 'cd rake\task && C:\python3.6\python start_autoTest.py'
+    # - dir
+    # - set sourcePath="..\..\report\%date:~0,4%%date:~5,2%\%date:~8,2%"
+    # - set destPath="D:\autoTest\webApiTest\report\%date:~0,4%%date:~5,2%\%date:~8,2%\"
+    # - echo %sourcePath% %destPath%
+    # - xcopy /S /E /Y /F %sourcePath% %destPath%
+  # only:
+    # - master
+  # tags:
+    # - master
+    
+    
+

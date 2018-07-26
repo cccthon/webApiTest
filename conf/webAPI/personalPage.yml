@@ -1,0 +1,63 @@
+﻿##################################################################################
+##################↓↓↓↓↓↓######### 接口url定义 #########↓↓↓↓↓↓#####################
+##################################################################################
+#######web 接口请求的url除了域名的后半部分。key命名方式：接口名_url###############
+##################################################################################
+
+
+#获取交易员账号的跟随者列表（个人展示页）
+getFollowersOfTrader_url1: "api/v2/trade/traders/"
+getFollowersOfTrader_url2: "/followers"
+
+#获取交易员账号的交易图表统计数据
+getGraphicsOfTrader_url1: "api/v2/trade/traders/"
+getGraphicsOfTrader_url2: "/graphics"
+
+#获取跟随者账号的交易图表统计数据
+getGraphicsOfCustomer_url1: "api/v2/trade/customers/"
+getGraphicsOfCustomer_url2: "/graphics"
+
+#获取某用户交易账号的订单（个人展示页）
+getOrdersOfUserAccount_url1: "api/v2/trade/accounts/"
+getOrdersOfUserAccount_url2: "/orders"
+
+#获取交易员账号的交易统计数据
+getStatisticsOfTrader_url1: "api/v2/trade/traders/"
+getStatisticsOfTrader_url2: "/statistics"
+
+#获取跟随者账号的统计数据
+getStatisticsOfcustomer_url1: "api/v2/trade/customers/"
+getStatisticsOfcustomer_url2: "/statistics"
+
+#获取跟随者账号跟随的交易员列表（个人展示页）
+getFollowsOfCustomer_url1: "api/v2/trade/customers/"
+getFollowsOfCustomer_url2: "/follows"
+
+
+#获取某用户交易账号的订单（个人展示页）
+getOrdersOfUserAccount_url1: "api/v2/trade/accounts/"
+getOrdersOfUserAccount_url2: "/orders"
+
+
+#获取用户的交易账号列表（个人展示页）
+getAccountsOfUser_url1: "api/v2/trade/users/"
+getAccountsOfUser_url2:  "/accounts"
+
+#获取某用户交易账号关注品种（个人展示页）
+getAttentionSymbols_url1: "api/v2/trade/accounts/"
+getAttentionSymbols_url2: "/attention-symbols"
+
+#获取某用户交易账号的订单涉及到的交易品种列表（个人展示页）
+getOrderSymbolsOfUserAccount_url1: "api/v2/trade/accounts/"
+getOrderSymbolsOfUserAccount_url2: "/order-symbols"
+
+
+
+
+
+
+
+
+
+
+

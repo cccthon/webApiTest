@@ -1,0 +1,32 @@
+﻿注意事项：
+1、目录名称请勿带点：. 。 列如：Services.proto
+----------------------------------------------------------------------------
+环境安装：
+1、下载安装python (https://www.python.org/downloads/) 。需要python版本大于等于3。可以安装目前最新稳定版本3.6.x.x
+2、安装yaml包：python -m  pip install pyyaml 
+3、安装socket client：python -m pip install socketIO-client-2
+   安装redis库：python -m pip install redis
+   安装requests_toolbelt
+   安装mssql库: pip3 install pymssql
+   统计数据安装表格库: pip3 install prettytable
+   presto数据库客户端：pip3 install pyhive
+   mongo DB客户端：pip3 install pymongo
+	
+	
+4、如果用到对mssql数据库的操作，需要安装sql包：python -m pip install pyodbc
+5、clone 本工程，执行test(或rake/task)目录下的任意用例不报错即环境安装正确
+6. test77
+-----------------------------------------------------------------------------
+目录结构介绍：
+webApiTest        			#工程主目录
+  ├─conf				#配置文件、数据
+  ├─lib					#函数库
+  │  ├─public				#公共函数
+  │  └─business    	        	#account相关服务函数库
+  │      ├─webAPI.py			#webAPI接口函数库
+  │      ├─account.py			#account服务函数库
+  ├─rake
+  │  └─task				#自动化工程任务启动程序
+  ├─report				#测试报告生成目录
+  └─test				#测试用例
+      └─auth				#auth相关用例

@@ -1,0 +1,71 @@
+﻿##################################################################################
+##################↓↓↓↓↓↓######### 接口url定义 #########↓↓↓↓↓↓#####################
+##################################################################################
+#######web 接口请求的url除了域名的后半部分。key命名方式：接口名_url###############
+##################################################################################
+
+followStarLogin_url: "api/v2/pyramid/login"
+
+#GetMyTradeInfo_url: "api/v2/pyramid/my/trade"
+
+#首页--个人信息
+GetMemberInfo_url: "api/v2/pyramid/member/information"
+
+GetTeamInfoPage_url: "api/v2/pyramid/team/info/page?page=1&size=20"
+
+# 团队详情 - 统计行
+GetTeamInfoStatistics_url: "api/v2/pyramid/team/info/statistics"
+
+GetTeamPersonInfoPage_url: "api/v2/pyramid/team/members"
+
+GetTeamPersonStatistics_url: "api/v2/pyramid/team/member/statistics"
+
+GetTeamTradePage_url: "api/v2/pyramid/team/trade"
+
+GetTeamTradeStatistics_url: "api/v2/pyramid/team/trade/statistics"
+
+#GetUpgradeInfo_url: "api/v2/pyramid/upgrade/information"
+
+# 是否升级接口
+TakeUserUpgradeTip_url: "api/v2/pyramid/is/upgrade"
+
+GetUserInfo_url: "api/v2/pyramid/member/information"
+
+FollowStarLogout_url: "api/v2/pyramid/logout"
+
+# 根据关键字搜索昵称,只显示五条
+SearchNickNameWithKey_url: "api/v2/pyramid/search/nickname/with/key"
+
+# 我的服务费-获取银行卡信息
+getPayment_url: "api/v2/pyramid/bankcard/info"
+
+# 我的服务费-绑定/更新银行卡
+CreateNewOrUpdatePayment_url: "api/v2/pyramid/bind/bank/information"
+
+# 我的服务费-服务费明细
+GetCommissionLogPage_url: "api/v2/pyramid/commission/detail"
+
+# 我的服务费-数据总览
+GetMyCommissionSummary_url: "api/v2/pyramid/commission/summary"
+
+# 我的服务费-提取服务费
+ApplyingCommissionWithdraw_url: "api/v2/pyramid/commission/withdraw"
+
+# 我的服务费-服务费提取记录
+GetCommissionWithdrawRecord_url: "api/v2/pyramid/commission/withdraw/record"
+
+#Trader/AddExchangeRate  OA设置汇率（需要登录）
+addExchangeRate_url: "Trader/AddExchangeRate"
+
+#Trader/GetTodayExchangeRate  OA获得汇率（需要登录）
+getTodayExchangeRate_url: "Trader/GetTodayExchangeRate"
+
+# OA服务费审核--获取数据列表
+GetCommissionList_url: "Pyramid/GetCommissionList"
+
+# OA服务费审核--审核通过
+AuditingCommission_url: "Pyramid/AuditingCommission"
+
+# OA服务费审核--已打款和打款失败
+AuditingCommissionPayMoney_url: "Pyramid/AuditingCommissionPayMoney"
+

@@ -1,0 +1,54 @@
+﻿##################################################################################
+##################↓↓↓↓↓↓######### 接口url定义 #########↓↓↓↓↓↓#####################
+##################################################################################
+#######web 接口请求的url除了域名的后半部分。key命名方式：接口名_url###############
+##################################################################################
+#发布产品（需要登录）
+createProduct_url: "api/v2/trade/mam/products"
+#申请提前结束产品（需要登录）
+endProduct_url: "api/v2/trade/mam/products/:id/end"
+
+getAllProducts_url: "api/v2/trade/mam/all-products"
+
+#OA产品通过/驳回
+ProductProposeAction_url: "MAM/MAMmanage/ProductProposeAction"
+
+#OA产品申请审核记录分页查询
+GetPageProductPropose_url: "MAM/MAMmanage/GetPageProductPropose"
+
+#获取产品状态
+getProductStatus_url: "api/v2/trade/mam/products/"
+getProductStatus_status_url: "/status"
+
+#参与产品
+joinProduct_url: "api/v2/trade/mam/products/"
+joinProduct_join_url: "/join"
+
+#获取产品信息
+getProduct_url: "api/v2/trade/mam/products/"
+
+#申请提前结束产品
+endProduct_url: "api/v2/trade/mam/products/"
+endProduct_end_url: "/end"
+
+#获取短信验证码
+endProductSMSCode_url: "api/v2/trade/mam/smscode/end-product"
+
+#检验短信验证码
+endProductSMSCodeVerify_url: "api/v2/trade/mam/smscode/end-product/verify"
+
+#获取产品的订单列表
+getProductOrders_url: "api/v2/trade/mam/products/"
+getProductOrders_orders_url: "/orders"
+
+#oa修改产品开始时间
+UpdatePendingProduct_url: "MAM/MAMmanage/UpdatePendingProduct"
+
+#oa结束产品
+ProductEnd_url: "MAM/MAMmanage/ProductEnd"
+
+
+
+
+
+

@@ -1,0 +1,106 @@
+﻿#每个参数冒号后面必须留一个空格
+
+################################################################################
+###↓↓↓######################   定义alibeta环境信息   ######################↓↓↓###
+################################################################################
+ws_host: "alibetaot.followme.com"
+ws_port: 80
+brokerToken: {'token': "0p6p8s4kxpN6wYPzSmcGkTgh7J/Q7cfCfx5e35/R9KClhZ9G9Aeisw@@"} ##传入经纪商的token。token中带等于号‘=’，需要用@符号替换
+traderToken: 'token'
+
+ws_headers: {}
+ws_proxies: {}
+
+################################################################################
+###↓↓↓######################   定义dev环境信息   ######################↓↓↓###
+################################################################################
+# ws_host: "192.168.8.10"
+# ws_port: 9001
+# brokerToken: {'token': "0p6p8s4kxpN6wYPzSmcGkTgh7J/Q7cfCqGqE4heWkwg8GlUVbWnweQ@@"} ##传入经纪商的token。token中带等于号‘=’，需要用@符号替换
+# traderToken: 'token'
+
+# ws_headers: {}
+# ws_proxies: {}
+
+################################################################################
+###↓↓↓######################   定义test 148环境信息   #####################↓↓↓###
+################################################################################
+# ws_host: "192.168.1.148"
+# ws_port: 9001
+# brokerToken: {'token': "KwXIDJBLi3dKhq+jBTf3l/IONiafVQh0XhhUgRS5Pjk@"} ##传入经纪商的token。token中带等于号‘=’，需要用@符号替换
+# ws_headers: {}
+# ws_proxies: {}
+
+
+################################################################################
+###↓↓↓######################   定义环境信息   ############################↓↓↓###
+################################################################################
+#web socket监听超时时间
+ws_waitTime: 5
+#等待时间
+waitTime: 4
+
+#web socket event
+ws_event_order: 'order'      #交易事件
+ws_event_result: 'result'    #订单结果返回事件
+ws_event_q: 'q'              #报价推送事件
+ws_event_sl: 'sl'            #品种列表事件
+
+#web socket response code
+ws_code_0: 0         # order操作成功，用于校验使用
+ws_code_3: 3         # order操作有错误发生，用于校验使用
+ws_code_210: 210     # 及时单开仓
+ws_code_211: 211     # 及时单平仓
+ws_code_212: 212     # 修改及时单止损止盈
+ws_code_213: 213     # 挂单
+ws_code_214: 214     # 删除挂单
+ws_code_215: 215     # 修改挂单
+ws_code_219: 219     # 即时单批量平仓
+ws_code_222: 222     # 用户账户信息获取
+ws_code_401: 401     # 获取用户订单
+ws_code_223: 223     # 部分平仓
+
+
+#Order OpenParam 开仓/平仓入参 ====================
+orderParam_cmd: 'cmd'               #交易指令   0：买； 1：卖
+orderParam_code: 'code'             #order的相关操作，对应上面部分的：#web socket response code
+orderParam_symbol: 'symbol'         #品种类型
+orderParam_token: 'token'           #经纪商token
+orderParam_volume: 'volume'         #手数
+orderParam_sl: 'sl'                 #止损
+orderParam_tp: 'tp'                 #止盈
+orderParam_ticket: 'ticket'         #平仓时使用的单号
+orderParam_tickets: 'tickets'        #批量平仓时使用的单号
+orderParam_sl: 'sl'                 #止损
+orderParam_tp: 'tp'                 #止盈
+orderParam_sub_cmd: 'sub_cmd'       #1 新增止损止盈 2 修改止损止盈 3 删除SL 4删除TP
+#PendingParam 挂单===================
+pendingParam_price: 'price'              #交易价格
+pendingParam_symbol: 'symbol'              #品种类型
+pendingParam_volume: 'volume'              #挂单手数
+
+#建立挂单参数
+pending_price:    #挂单交易价格
+pending_symbol:   #挂单品种类型
+pending_volume: 10   #挂单手数
+#经纪商品种
+broker_EURCAD: 'EURCAD'
+standard_EURCAD: 'EUR/CAD'
+#交易手数
+broker_volume: 100
+broker_partvolume: 10
+#orderParam_sub_cmd类型
+orderParam_subcmd: 1
+#开仓类型
+order_cmd: 0
+#挂单cmd
+pending_cmd: 4
+#followme标准品种
+fm_EURCAD: 'EUR/CAD'
+#订单止盈止损
+points: 0.05
+#挂单止盈
+tp_points: 0.1
+
+
+

@@ -1,0 +1,109 @@
+﻿#每个参数冒号后面必须留一个空格
+sqlalchemy_mssql: 'mssql+pymssql://betareader:V6Wq8Z4mxihz@119.23.168.162:52436/FM_OS_V3'
+
+#alibeta mssql数据库链接信息
+mssql_host: '119.23.168.162'
+mssql_port: 52436
+mssql_user: 'betareader'
+mssql_passwd: 'V6Wq8Z4mxihz'
+mssql_V3_DB: 'FM_OS_V3'
+
+#alibeta mysql数据库链接信息
+mysql_host: '119.23.168.162'
+mysql_port: 53326
+mysql_user: 'betareader'
+mysql_passwd: 'V6Wq8Z4mxihz'
+mysql_statistic_DB: 'datastatistic'
+
+#dev mysql数据库链接信息
+# mysql_host: '192.168.8.6'
+# mysql_port: 3316
+# mysql_user: 'root'
+# mysql_passwd: 'my-secret-pw'
+# mysql_statistic_DB: 'datastatistic'
+
+
+###############指标定义
+#盈亏金额(平仓总收益)
+profit_close: "SELECT isnull(sum(isnull(swaps,0) + isnull(commission,0) + isnull(profit,0)),0) as profit_close from t_mt4trades where login=%s and brokerid=%d and cmd in (0,1) and close_time > '%s' and close_time < '%s'"
+#盈亏金额（平，持仓总收益）
+profit: "
+DECLARE @account VARCHAR(64)=%s
+DECLARE @broker_id int=%d
+DECLARE @start_time VARCHAR(64)='%s'
+DECLARE @end_time VARCHAR(64)='%s'
+DECLARE @pre_equity FLOAT=0
+DECLARE @current_equity FLOAT=0
+DECLARE @deposit FLOAT=0
+DECLARE @withdraw FLOAT=0
+SELECT @pre_equity=equity FROM T_TraderDaily_New WHERE TraderId=@account AND BrokerID=@broker_id AND createdDate>=DATEADD(day, -1, @start_time) and createdDate<@start_time
+SELECT @current_equity=equity FROM T_TraderDaily_New WHERE TraderId=@account AND BrokerID=@broker_id AND createdDate>=@start_time and createdDate<@end_time
+SELECT @deposit=SUM(ISNULL(profit,0)) FROM T_MT4Trades WHERE LOGIN=@account AND BrokerID=@broker_id AND CMD IN (6,7)
+AND CLOSE_TIME>=@start_time AND CLOSE_TIME<@end_time AND PROFIT>0
+SELECT @withdraw=SUM(ISNULL(profit,0)) FROM T_MT4Trades WHERE LOGIN=@account AND BrokerID=@broker_id AND CMD IN (6,7)
+AND CLOSE_TIME>=@start_time AND CLOSE_TIME<@end_time AND PROFIT<0
+SELECT isnull(isnull(@current_equity,0)-isnull(@pre_equity,0)-ISNULL(@withdraw,0)-ISNULL(@deposit,0),0) as profit"
+
+#交易手数
+standard_lots: "SELECT isnull(sum(standardlots),0) as standard_lots from t_mt4trades where login=%s and brokerid=%d and cmd in (0,1) and close_time > '%s' and close_time < '%s'"
+#交易笔数
+orders: "SELECT count(1) as orders from t_mt4trades where login=%s and brokerid=%d and cmd in (0,1) and close_time >= '%s' and close_time < '%s'"
+#跟随服务费
+follow_service_charge: "select isnull(sum(FollowReturn),0) as follow_service_charge from  T_TraderCommissionDetails where traderID=%s and traderbrokerid=%d and traderCloseTime >= '%s' and traderCloseTime < '%s'"
+#实盘跟随数量
+follower_count: "
+DECLARE @account VARCHAR(64) = %s
+DECLARE @brokerid float = %d
+DECLARE @closeTime1 VARCHAR(64) = '%s' 
+DECLARE @closeTime2 VARCHAR(64) = '%s'
+SELECT count(distinct(followaccount)) as follower_count from T_FollowReport  where masteraccount=@account and masterbrokerid=@brokerid and endDate='1970-01-01'"
+
+#实盘跟随总收益
+follow_actual_money: "
+DECLARE @account VARCHAR(64) = %s
+DECLARE @brokerid float = %d 
+SELECT isnull(sum(ISNULL(a.PROFIT,0)+ISNULL(a.SWAPS,0)+ISNULL(a.COMMISSION,0)),0) as follow_actual_money from t_mt4trades as a left join t_followorders as b on a.ticket=b.followOrderID where b.masterAccount=@account and b.masterBrokerID=@brokerid and a.cmd in (0,1) and a.close_time >= '%s' and a.close_time < '%s'"
+#跟随总收益
+follow_money: "
+DECLARE @account VARCHAR(64) = '%s'
+DECLARE @brokerid float = %d 
+DECLARE @closeTime1 VARCHAR(64) = '%s' 
+DECLARE @closeTime2 VARCHAR(64) = '%s'
+DECLARE @t_followorders float = 0.0 
+DECLARE @td_followorders float = 0.0 
+select @t_followorders=sum(ISNULL(a.PROFIT,0)+ISNULL(a.SWAPS,0)+ISNULL(a.COMMISSION,0)) from t_mt4trades as a left join t_followorders as b on a.ticket=b.followOrderID where b.masterAccount=@account and b.masterBrokerID=@brokerid and a.cmd in (0,1) and a.close_time >= @closeTime1 and a.close_time < @closeTime2 
+select @td_followorders=sum(ISNULL(a.PROFIT,0)+ISNULL(a.SWAPS,0)+ISNULL(a.COMMISSION,0)) from t_mt4trades as a left join td_followorders as b on a.ticket=b.followOrderID where b.masterAccount=@account and b.masterBrokerID=@brokerid and a.cmd in (0,1) and a.close_time >= @closeTime1 and a.close_time < @closeTime2
+SELECT (ISNULL(@t_followorders,0) + ISNULL(@td_followorders,0)) as follow_money"
+#跟随总手数
+follow_standard_lots: "
+DECLARE @account VARCHAR(64) = '%s'
+DECLARE @brokerid float = %d
+DECLARE @closeTime1 VARCHAR(64) = '%s' 
+DECLARE @closeTime2 VARCHAR(64) = '%s' 
+DECLARE @t_followorders float = 1.0
+DECLARE @td_followorders float = 1.0
+select @t_followorders=sum(StandardLots) from t_mt4trades where cmd in (0,1) and close_time >= @closeTime1 and close_time < @closeTime2 and ticket in (select followOrderID from t_followorders where masterAccount=@account and masterBrokerID=@brokerid) 
+select @td_followorders=sum(StandardLots) from t_mt4trades where cmd in (0,1) and close_time >= @closeTime1 and close_time < @closeTime2 and ticket in (select followOrderID from td_followorders where masterAccount=@account and masterBrokerID=@brokerid) 
+SELECT isnull(@t_followorders,0) + isnull(@td_followorders,0) as follow_standard_lots"
+
+#收益率
+aroi: "
+DECLARE @account VARCHAR(64)=%s
+DECLARE @broker_id int=%d
+DECLARE @start_time VARCHAR(64)='%s'
+DECLARE @end_time VARCHAR(64)='%s'
+DECLARE @pre_equity FLOAT=0
+DECLARE @current_equity FLOAT=0
+DECLARE @aroi FLOAT=0
+DECLARE @deposit float=0
+SELECT @pre_equity=equity FROM T_TraderDaily_New WHERE TraderId=@account AND BrokerID=@broker_id AND createdDate>=DATEADD(day, -1, @start_time) and createdDate<@start_time
+SELECT @current_equity=equity FROM T_TraderDaily_New WHERE TraderId=@account AND BrokerID=@broker_id AND createdDate>=@start_time and createdDate<@end_time
+SELECT @deposit=isnull(SUM(ISNULL(profit,0)),0) FROM T_MT4Trades WHERE LOGIN=@account AND BrokerID=@broker_id AND CMD IN (6,7)
+AND CLOSE_TIME>=@start_time AND CLOSE_TIME<@end_time AND PROFIT>0
+SELECT ISNULL(@current_equity/(@pre_equity+@deposit), 0) as aroi"
+#账号数据
+megagameAccount: "
+select userAccount.userid,u_user.nickName,u_user.realName,u_user.accountMobile,u_user.createTime,userAccount.createTime as bindTime, 
+mt4user.equity,userAccount.mt4Account,userAccount.brokerID,userAccount.accountIndex from t_useraccount as userAccount  
+left join u_user as u_user on userAccount.userID=u_user.id left join t_mt4users as mt4user on userAccount.mt4Account=mt4user.login 
+and userAccount.brokerID=mt4user.brokerID where userAccount.mt4Account='%s' and userAccount.brokerID=%d"

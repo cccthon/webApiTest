@@ -1,0 +1,126 @@
+﻿##################################################################################
+##################↓↓↓↓↓↓######### 接口url定义 #########↓↓↓↓↓↓#####################
+##################################################################################
+#######web 接口请求的url除了域名的后半部分。key命名方式：接口名_url###############
+##################################################################################
+
+##################################################################################
+##################↓↓↓↓↓↓######### Social模块URl #########↓↓↓↓↓↓################
+##################################################################################
+
+#关注用户
+attentionUser_url1: "api/v1/social/users/"
+attentionUser_url2: "/attention"
+
+#获取当前登录用户的关注列表
+getMyAttentions_url: "api/v1/social/me/attentions"
+
+#获取当前登录用户的粉丝列表
+getMyFans_url : "api/v1/social/me/fans"
+
+#发布对微博评论
+addComment_url1: "api/v1/social/comments/"
+addComment_url2: "/comment"
+
+#根据微博id加载评论列表
+getComments_url1: "api/v1/social/blogs/"
+getComments_url2: "/comments"
+
+#我评论的列表
+getMyComments_url: "api/v1/social/me/comments"
+
+#评论我的列表
+getCommentsAboutMe_url : "api/v1/social/comments/aboutme"
+
+#获取微博ID来发微博
+getNewBlogid_url: "api/v1/social/blogs/new/id"
+
+#删除评论
+deleteComment_url: "api/v1/social/comments/"
+
+#删除微博
+deleteBlog_url: "api/v1/social/blogs/"
+
+#点赞微博
+praiseBlog_url1: "api/v1/social/blogs/"
+praiseBlog_url2: "/praise"
+
+#微博评论点赞
+praiseComment_url: "api/v1/social/comments/"
+praiseComment_url2 : "/praise"
+
+#获取微博新增点赞数
+getNewPraiseMicroBlogs_url : "api/v1/social/blogs/new/praise/list?ids="
+
+#获取微博评论新增点赞数
+getNewPraiseComments_url : "api/v1/social/blogs/new/comments/praise/list?ids="
+
+#获取微博点赞的用户列表
+getUserPraiseMicroBlogs_url : "api/v1/social/blogs/"
+getUserPraiseMicroBlogs_url2 : "/praiseusers"
+
+#获取微博评论点赞的用户列表
+getUserPraiseComments_url : "api/v1/social/blogs/comments/"
+getUserPraiseComments_url2 : "/praiseusers"
+
+#获取微博点赞列表
+getPraiseList_url : "api/v1/social/praise/list"
+
+#微博分享
+blogShare_url: "api/v1/social/blog/share"
+
+#收藏微博
+collectBlog_url1: "api/v1/social/blogs/"
+collectBlog_url2: "/collect"
+
+#我的收藏列表
+getCollectionList_url : "api/v1/social/blogs/mycollect"
+
+#热门微博列表
+getMicroBlogs_url: "api/v1/social/blogs"
+
+#发布短微博
+postShortBlog_url: "api/v1/social/blogs/short"
+
+#发布长微博
+postLongBlog_url: "api/v1/social/blogs/long"
+
+#@我的微博列表
+getAtMeBlogList_url: "api/v1/social/blogs/atme"
+
+#@我的评论列表、
+getAtMeCommentList_url: "api/v1/social/comments/atme"
+
+#获取我的微博列表
+getMyBlogList_url: "api/v1/social/me/blogs"
+
+#@用户接口
+getFriends: "api/v1/social/me/atfriends"
+
+#发布对评论的回复
+replyComment_url1 : "api/v1/social/comments/"
+replyComment_url2 : "/reply"
+
+
+#微博分享
+blogShare_url: "api/v1/social/blog/share"
+
+#热门微博置顶
+setHotBlogTop_url: "api/v1/social/blogs/hot-top"
+
+#上传图片
+multiFileUpload_url: "api/v1/file/upload"
+
+#AllSymbols
+getAllSymbolsUrl: "api/v2/trade/all-symbols"
+
+
+#查找用户
+searchUsers_url: "api/v1/social/users/search"
+
+
+
+
+
+
+

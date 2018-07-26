@@ -1,0 +1,317 @@
+#每个参数冒号后面必须留一个空格
+##################################################################################
+#####################↓↓↓↓↓↓######### 定义测试环境信息 #########↓↓↓↓↓↓#############
+##################################################################################
+
+# # ###定义alibeta测试环境信息++++++++++++++++++++++++++++++++
+# #域名最后需要带一个'/'。
+hostName: "https://wme.com/"
+hostNameOA: "http://llowme.com/"
+hostNameSwagger: "http://owme.com/"
+hostPyramid: "http://lowme.com/"
+# ###交易员账号信息-----------------------------------
+account: '18088' #account: '18081'
+passwd: '123456'
+realName: '测试'
+accountEmail: '18088888805@qq.com' #accountEmail: '18088888807@qq.com'
+oaClientId: 'oa'
+oaUsername: 'mqwtknet'
+oapassword: '16'
+nickName: "FMT07"
+userId: "148174"
+
+account1: '18088888807' #account: '18088888807'
+passwd: '123456'
+realName: '测试'
+accountEmail: '18088888807@qq.com' #accountEmail: '18088888807@qq.com'
+oaClientId: 'oa'
+oaUsername: 'mqwtkn69074@chacuo.net'
+oapassword: '123456'
+nickName: "FMTS007"
+userId: "148174"
+
+
+
+#当前交易员账号经纪商账号索引,换了账号可能会变。需要注意配置
+# tradeDemo: "1"
+# tradePico: "2"
+# tradeKVBmini: "3"
+# tradeKVB: "4"
+# tradeFXCM: "5"
+accoount2: '18088888801'
+passwd2: '123456'
+
+#跟随者账号信息------------------------------------
+followAccount: '18088888814' #followAccount: '18088888814'
+followPasswd: '123456'
+#followNickName: 'FMTS014'
+# followUserid: '148181'
+#当前跟随者账号经纪商账号索引,换了账号可能会变。需要注意配置
+# followDemo: "1"
+# followPico: "2"
+# followKVBmini: "3"
+# followKVB: "4"
+# followFXCM: "5"
+
+followAccount2: '18529516074'
+folllowPasswd2: '123456'
+
+###############################################################
+################ 定义dev 环境信息 ############################
+##定义alibeta测试环境信息++++++++++++++++++++++++++++++++
+##域名最后需要带一个'/'。
+#
+#apiRedis_host: '1.6'
+#apiRedis_port: 7001
+#
+#oaClientId: 'oa'
+#oaUsername: 'mqwt.net'
+#oapassword: '123456'
+###交易员账号信息-----------------------------------
+#account: '136614'
+#passwd: '126'
+#userId: "131104"
+##nickName: "FMCITS014"
+#
+##跟随者账号信息------------------------------------
+#followAccount: '166601'
+#followPasswd: '126'
+#followNickName: 'FS001'
+#followUserid: '131091'
+
+##################定义192.est测试环境信息++++++++++++++++++++++++++++++++
+# ###定义sql server相关信息
+mssql_host: '1162'
+mssql_port: '6'
+db_user: 'btr'
+db_passwd: 'Vihz'
+FM_OS_DB: 'FM3'
+apiRedis_host: '.192'
+apiRedis_port: 5
+
+
+##################################################################################
+##################↓↓↓↓↓↓######### 接口公用参数 #########↓↓↓↓↓↓#####################
+##################################################################################
+headers: {"content-type": "application/json; charset=utf-8"}
+Authorization: "Authorization"
+Bearer: "Bearer "
+accountIndex: "?accountIndex="
+headersOA: {"content-type": "application/json", "Accept" : "application/json"}
+
+##################################################################################
+##################################交易数据#########################################
+##################################################################################
+followStrategy: "strategy"    #跟随策略
+follow_fixed: "fixed"         #固定跟随
+follow_ratio: "ratio"         #按比例跟随
+follow_setting: "setting"     #跟随的手数设置,1倍；固定一手
+followDirection: "direction"  #跟随的方向
+follow_positive: "positive"   #正向跟随
+follow_negative: "negative"   #反向跟随
+##################################################################################
+##################↓↓↓↓↓↓######### 风控模块数据定义 #########↓↓↓↓↓↓################
+##################################################################################
+signalSwitch: 'signalSwitch'
+signalSwitch_open: 'Open'
+signalSwitch_close: 'Close'
+maxPositionLots: 'maxPositionLots'
+openPositionRound: 'openPositionRound'
+closePositionRound: 'closePositionRound'
+Floor: 'Floor'    #风控设置开仓或平仓取小
+Ceil: 'Ceil'      #风控设置开仓或平仓取大
+stopFollowPeriods: 'stopFollowPeriods'    #停止跟随时间设置参数
+Weekday: 'Weekday'
+Hours: 'Hours'
+maxPositionOrders: 'maxPositionOrders'
+symbolList: "symbolList"
+Symbol: "Symbol"
+FollowType: "FollowType"       #交易类型：全部；仅买；仅卖；不跟随
+StrategyType: "StrategyType"   #跟随策略：固定；按比列
+Direction: "Direction"         #跟随方向：正向；反向
+FollowSize: "FollowSize"       #跟随数量
+SLPips: "SLPips"
+TPPips: "TPPips"
+Locked: "Locked"
+##################################################################################
+##################↓↓↓↓↓↓######### 响应码定义 #########↓↓↓↓↓↓######################
+##################################################################################
+#定义请求响应码：status_code
+status_code_200: 200
+status_code_400: 400
+status_code_401: 401
+code_0: 0
+##################################################################################
+##################↓↓↓↓↓↓######### 账号模块数据定义 #########↓↓↓↓↓↓################
+##################################################################################
+##注册账号#
+registerAccount: "18044444401"
+registerEmail: "18044444401@qq.com"
+registerPwd: "123456"
+platform: "pcweb"
+invite: "52021"
+oauth2: "false"
+usernameOA: "chenyy"
+passwordOA: "yang123"
+
+
+getUserAccountSummaryReportAccountType_1: 1
+getUserAccountSummaryReportAccountType_2: 2
+getUserAccountSummaryReportAccountType_3: 3
+
+getUserAccountSummaryReportPageIndex: 1
+getUserAccountSummaryReportPageSize: 50
+getUserAccountSummaryReport_Orderby: "LastLoginDate Desc"
+
+FMaccount: 1159360
+
+##################################################################################
+##################↓↓↓↓↓↓######### 微博模块数据定义 #########↓↓↓↓↓↓################
+##################################################################################
+type: 2  #博客类型：0-普通微博，1-公告，2-品种资讯，3-交易动态
+atmeType_blog: 2  #2: 微博@了我   #6: 评论@了我
+atmeType_comment: 6
+
+
+##################################################################################
+##################↓↓↓↓↓↓######### 个人展示页数据定义 #########↓↓↓↓↓↓################
+##################################################################################
+#个人展示页userid
+#pgUserId: "73826"
+pgAccountIndex: "2"
+#pgNickName: "幻城梨落"
+
+##################################################################################
+##################↓↓↓↓↓↓######### 注册数据定义 #########↓↓↓↓↓↓################
+##################################################################################
+
+#正在跟随跟随者userid
+#follUserid: "66285"
+#follAccIndex: "3"
+#follNickName: "飞上云霄"
+follStrategy: "fixed"
+follSetting: "0.3"
+follDirection: "positive"
+#isFollowing_True: "true"
+#isFollowing_False: "false"
+
+##################################################################################
+##################↓↓↓↓↓↓######### 交易模块数据定义 #########↓↓↓↓↓↓################
+##################################################################################
+#FMCITS012
+waccount: '18088888805'
+wpasswd: '123456'
+#FMCITS005
+wfollowAccount: '18088888812'
+wfollowpasswd: '123456'
+wgetAllSymbolparam: "?full="
+full: 'true'
+number: 0
+#批量开仓数
+openUnmber: 10
+#切换账号索引
+switchAccountIndex: '2'
+pageSize: 100
+##################################################################################
+##################↓↓↓↓↓↓######### 跟随模块数据定义 #########↓↓↓↓↓↓################
+##################################################################################
+isFollowing: 'true'
+isFollowingFalse: 'false'
+isFollowingtrue: {'isFollowing':'true'}
+isFollowingfalse: {'isFollowing':'false'}
+#跟随策略
+waccountIndex: 2
+wstrategy: 'fixed'
+wsetting: 1
+#修改跟随策略
+upstrategy: 'ratio'
+upsetting: 1
+waitTime: 5
+
+##################################################################################
+##################↓↓↓↓↓↓######### 订单管理数据定义 #########↓↓↓↓↓↓################
+##################################################################################
+orderStatus: 'orderStatus'
+orderStatus_open: 'OPEN'      #正在持仓
+orderStatus_close: 'CLOSE'    #历史交易
+
+
+##################################################################################
+##################↓↓↓↓↓↓########### MAM数据定义 #########↓↓↓↓↓↓###################
+##################################################################################
+getAllProuductPageIndex: 1
+getAllProuductPageSize: 100
+
+#状态
+status_Pending: 'Pending' #发布中
+status_Trading: 'Trading' #交易中
+status_Settled: 'Settled' #已结束
+status_InProcess: 'InProcess' #进行中
+
+#收益分配
+profitRatio1: '0.8'
+profitRatio2: '0.5'
+#收益分配返回结果
+takeProfitRatio1: 0.8
+stopLossRatio1: 1
+takeProfitRatio2: 0.5
+stopLossRatio2: 0.5
+
+#最大风险
+followerMaxRisk1: '0-0.01'
+followerMaxRisk2: '0.01-0.05'
+followerMaxRisk3: '0.05-0.075'
+followerMaxRisk4: '0.075-0.1'
+followerMaxRisk5: '0.1-0.125'
+followerMaxRisk6: '0.125-0.15'
+
+
+#操作周期
+expectDays1: '0-15'
+expectDays2: '15-30'
+expectDays3: '30-60'
+expectDays4: '60-90'
+
+
+#最低参与资金范围
+minFollowBalance1: '5000-10000'
+minFollowBalance2: '10000-30000'
+minFollowBalance3: '30000-50000'
+minFollowBalance4: '50000-100000'
+minFollowBalance5: '100000-200000'
+minFollowBalance6: '200000-'
+
+#收益率范围
+roi1: '0-0.1'
+roi2: '0.1-0.2'
+roi2: '0.3-'
+
+#每页条目数量
+pageSize: 10
+pageIndex: 1
+
+#阿里测试环境mysql数据库
+beta_mysql_host: "119.23.168.162"
+beta_mysql_port: 53326
+beta_mysql_db: "mam"
+beta_mysql_user: "betareader"
+beta_mysql_passwd: "V6Wq8Z4mxihz"
+
+
+#交易员账号信息------------------------------------
+account_1: '18088888805' #account_1: '18088888804'
+passwd_1: '123456'
+#nickName: "FMTS007"
+# userId: "148174"
+#当前交易员账号经纪商账号索引,换了账号可能会变。需要注意配置
+# tradeDemo: "1"
+# tradePico: "2"
+# tradeKVBmini: "3"
+# tradeKVB: "4"
+# tradeFXCM: "5"
+
+dataHost: '10.1.0.3'
+dataPost: '1433'
+database_V3: 'FM_OS_V3'
+dataID: 'betadb001'
+dataPWD: 'fXpcD6hxL7Vj'

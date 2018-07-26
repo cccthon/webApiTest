@@ -1,0 +1,49 @@
+脚本写作checklist：
+#### 红线
+1.打印调试日志时,请使用printLog方法：FMWebAPI.printLog(signin.text)
+   如果是打印单个值的调试日志,合入工程前请注释掉
+2.一个接口封装一个方法
+3.如果对一个值需要断言,又需要保存变量。请先断言再保存变量。
+		#登录成功，返回200 ok
+        self.assertEqual(signin.status_code, userData['status_code_200'])
+        #保存登录时的token，待登出使用
+        self.token = json.loads(signin.text)['data']['token']
+4.脚本不能存在魔鬼数字,请定义在yaml文件
+5.测试数据清除原则。列如存在开仓动作,那对应需要有平仓动作
+
+
+###写作规范
+一、 命名规范
+1. Script脚本命名
+	webAPI_最终场景名
+	PersonalPage.webAPI_getFollowsOfTrader.GetFollowsOfTrader	
+2. Script脚本内类的名称定义
+    最终场景名
+3. Script脚本内test方法命名
+	test场景名 
+4. 测试数据文件的命名  --
+
+二、 代码书写规范
+1. TestCase编写说明，用例信息 
+2. 代码编写规范 
+4. 方法之间空行 
+5. 一行只写一条语句。python的强缩进原则，如果一行能写下，不要分两行 
+6. 变量编写规范   
+	signinRes
+
+三、 代码注释规范
+1. 注释量不少于60% ，如果看不懂，返回写作人员加注释
+
+四、 测试数据编写规范
+1. 测试数据文件说明 
+2. 测试数据文件编写。归类、模块化
+
+五、 日志编写规范
+1. 返回值日志 
+2. assert信息 
+‘’‘’‘’ url打印 开关
+
+六、 代码维护规范
+1. 脚本 
+2. git版本库 
+

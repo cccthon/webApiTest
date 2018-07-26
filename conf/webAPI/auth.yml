@@ -1,0 +1,42 @@
+﻿##################################################################################
+##################↓↓↓↓↓↓######### 接口url定义 #########↓↓↓↓↓↓#####################
+##################################################################################
+#######web 接口请求的url除了域名的后半部分。key命名方式：接口名_url###############
+##################################################################################
+#登陆请求
+signin_url: "api/v1/auth/signin"
+#登出请求
+signout_url: "api/v1/auth/signout"
+#注册
+register_url: "api/v1/auth/register"
+#switchAccount
+switchAccount: "api/v2/trade/accounts/"
+switch: "/switch"
+#获取短信验证码
+getSMSScode_url: "api/v1/auth/smscode?mobile="
+#获取图形验证码
+getCaptcha_url: "api/v1/auth/captcha"
+#switchAccount
+switchAccount: "api/v2/trade/accounts/"
+switch: "/switch"
+
+#OA 登录、退出
+
+loginOA_url: "Token/UserToken?clientId="
+loginOutOA_url: "OAAccount/LogOut"
+
+#注销账号
+getCloseAccount_url: "Account/CloseAccount?userId="
+
+#OA单点登录获取token
+getUserToken_url: "Token/UserToken?clientId="
+
+
+
+
+
+
+
+
+
+

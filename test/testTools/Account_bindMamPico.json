@@ -1,0 +1,14 @@
+{
+	"items": [
+		{
+		"UserID": 171148,
+		"isTrader": 1,
+		"accountType": 1,
+		"price": 100000,
+		"BrokerID":5,
+		"Mt4Account":"830020",
+		"UserType":1
+		}
+	]
+
+}
