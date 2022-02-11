@@ -3,7 +3,7 @@ chardet==3.0.4
 future==0.16.0
 idna==2.6
 prettytable==0.7.2
-protobuf==3.4.0
+protobuf==3.15.0
 PyHive==0.5.1
 pymongo==3.6.0
 pymssql==2.1.3
